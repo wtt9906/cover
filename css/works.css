@@ -1,0 +1,110 @@
+﻿
+html, body, div, span, img, h1, h2, h3, p, dl, dt, dd, ol, ul, li, form, button, input {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font: 12px/1.5 'Lucida Grande',tahoma,arial,"宋体";
+}
+li {
+    list-style: none outside none;
+}
+a {
+    text-decoration: none;
+    transition: color 0.25s linear 0s;
+}
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+#content-box {
+    background: url("../img/dot_bg.png") repeat scroll 0 0 transparent;
+    margin: 0 auto;
+    width: 990px;
+    z-index: 1;
+}
+#content {
+    padding-top: 60px;
+}
+#content .works-welcome {
+    background: url("../img/bg.jpg") repeat scroll 0 0 transparent;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+    padding: 15px;
+    text-align: center;
+}
+#template {
+    display: none;
+}
+#content .works-list {
+    overflow: hidden;
+    padding: 20px 30px;
+}
+.works-list .works {
+    background: url("../img/bg.jpg") repeat scroll 0 0 transparent;
+    float: left;
+    height: 220px;
+    margin-bottom: 20px;
+    width: 310px;
+}
+.works .wrap {
+    background: url("../img/seperator.png") repeat-y scroll right top transparent;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+.wrap .works-photo {
+    overflow: hidden;
+    position: relative;
+}
+.wrap .works-photo a {
+    color: #9FA2A6;
+    display: block;
+}
+.wrap .works-photo .prompt {
+    background: none repeat scroll 0 0 #00CCFF;
+    bottom: -150px;
+    color: #FFFFFF;
+    font-size: 24px;
+    height: 150px;
+    left: 0;
+    line-height: 200px;
+    position: absolute;
+    text-align: center;
+    width: 290px;
+}
+.prompt .eye {
+    background: url("images/eye.png") no-repeat scroll 0 0 transparent;
+    height: 48px;
+    left: 121px;
+    position: absolute;
+    top: 30px;
+    width: 48px;
+}
+.works-photo img {
+    height: 150px;/*对应js里面-150的值*/
+    width: 290px;
+}
+.works-title, .works-title a {
+    color: #37393C;
+    font: bold 16px/28px 微软雅黑,宋体,Arial;
+    margin: 5px 0 0;
+    text-align: center;
+}
+.works-title a:hover {
+    color: #FD9720;
+}
+.works-intro {
+    color: #666666;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -3px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;/*省略号*/
+    white-space: nowrap;
+    width: 100%;
+}
+

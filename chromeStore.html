@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/works.css" rel="stylesheet">
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<ul  class="works-list">
+				<li class="works">
+					<div class="wrap">
+						<div class="works-photo">
+							<a href="http://demo.f2eer.com/works/chrome-index/" title="Chrome默认页" target="_blank">
+								<span class="prompt" style="bottom: -150px;">DEMO<b class="eye"></b></span>
+								<img src="images/4.gif" =""="" alt="Chrome默认页" title="Chrome默认页">
+							</a>
+						</div>
+						<h2 class="works-title">
+							<a href="http://demo.f2eer.com/works/chrome-index/" target="_blank">Chrome默认页</a>
+						</h2>
+						<p class="works-intro" title="这个效果主要就是俩图标碰撞交换位置，内含2个版本。">这个效果主要就是俩图标碰撞交换位置，内含2个版本。</p>
+					</div>
+				</li>
+		</ul>
+		<script>
+			$(".works").each(
+				function(){
+					$(this)[0].addEventListener("mousemove", show, true);
+					$(this)[0].addEventListener("mouseout", hide, true);
+				})
+			//$(".works")[0].addEventListener("mousemove", show, true);
+			//$(".works")[0].addEventListener("mouseout", hide, true);
+			function show(){
+				var oPrompt = $('.prompt',this)[0];
+				startMoveKm(oPrompt, {'bottom': 0}, 4);
+			};
+			function hide(){
+				var oPrompt = $('.prompt',this)[0];
+				startMoveKm(oPrompt, {'bottom': -150}, 6);
+			};
+			// 运动
+			function startMoveKm(obj, json, iKm, fnEnd){
+				clearInterval(obj.timer);//关闭定时器，避免同时move多个
+				obj.timer = setInterval(function (){
+					var bStop = true;
+					for(var name in json){
+						var iTarget = json[name];
+						if(name == 'opacity'){
+							var cur = Math.round(parseFloat(getStyle(obj, name))*100);
+						}else{
+							var cur = parseInt(getStyle(obj, name));
+						}
+						var speed = (iTarget - cur)/iKm;
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+						if (name == 'opacity') {
+							obj.style.filter = 'alpha(opacity:' + (cur + speed) + ')';
+							obj.style.opacity = (cur+speed)/100;
+						} else {
+							obj.style[name] = cur + speed + 'px';
+						}
+						if (cur != iTarget) {
+							bStop = false;
+						}
+					}
+					if (bStop) {
+						clearInterval(obj.timer);
+						if (fnEnd) {
+							fnEnd();
+						}
+					}
+				}, 30);//每隔30ms调一次
+			}
+			// 获取样式
+			function getStyle(obj, sName){
+				if (obj.currentStyle) {
+					return obj.currentStyle[sName];//IE
+				} else {
+					return getComputedStyle(obj, false)[sName];//FF
+				}
+			}
+		</script>
+	</body>
+</html>
